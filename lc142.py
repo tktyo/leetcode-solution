@@ -14,20 +14,15 @@ class Solution:
         # define slow pointer and fast pointer
         slow = head
         fast = head
-        if fast is None:
-            return None
-        while fast.next and fast.next.next:
+        temp = head
+
+        while fast and fast.next:
             slow = slow.next
             fast = fast.next.next
             if slow is fast:
-                break
+                while temp is not slow:
+                    temp = temp.next
+                    slow = slow.next
+                return temp
 
-        if fast.next is None or fast.next.next is None:
-            return None
-
-        temp = head
-        while temp is not slow:
-            temp = temp.next
-            slow = slow.next
-
-        return temp
+        return None

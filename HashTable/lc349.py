@@ -11,3 +11,6 @@ class Solution:
                 if table[i] == 2:
                     result.append(i)
         return result
+
+        # method 2
+        # return list(set(nums1)&set(nums2))
